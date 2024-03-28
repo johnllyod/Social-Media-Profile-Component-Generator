@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta
+      name="description"
+      content="Generate and design a social media profile link form component"
+    />
+    <title>Generate Social Media Profile Link Form Component</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/profile.css" />
+  </head>
+  <body>
+    <center>
+      <h1 class="headerTitle">Social Media Profile Component Generator</h1>
+    </center>
+    <div class="top-nav">
+      <button onclick="changeView('preview')">Preview</button>
+      <button onclick="changeView('html')">HTML</button>
+      <button onclick="changeView('css')">CSS</button>
+      <button onclick="changeView('javascript')">JavaScript</button>
+    </div>
+    <div class="profile">
+      <div id="profile">
+        <div id="profile-container" class="form-container">
+          <img
+            class="profile-img"
+            src="https://placehold.co/100"
+            alt="User profile picture"
+          />
+          <form id="profile-form">
+            <input
+              id="name"
+              type="text"
+              placeholder="Your name"
+              readonly="true"
+            />
+            <input
+              id="facebook"
+              type="text"
+              placeholder="FB name"
+              readonly="true"
+            />
+            <input
+              id="twitter"
+              type="text"
+              placeholder="@twitternametag"
+              readonly="true"
+            />
+            <input
+              id="instagram"
+              type="text"
+              placeholder="Instagram name"
+              readonly="true"
+            />
+            <input
+              id="youtube"
+              type="text"
+              placeholder="@YT name"
+              readonly="true"
+            />
+            <input
+              id="edit-profile"
+              type="button"
+              value="Edit"
+              onclick="enableEdit()"
+            />
+            <input
+              id="save-profile"
+              type="button"
+              value="Save"
+              onclick="saveAndDisableEdit()"
+            />
+          </form>
+        </div>
+      </div>
+      <div id="code-view" class="code-view">
+        <div class="copy-btn" onclick="copyCode()">Copy</div>
+        <pre id="codeContainer"></pre>
+      </div>
+    </div>
+
+    <div class="settings">
+      <div class="settings-nav">
+        <button onclick="changeSettingsView('color')">Color settings</button>
+        <button onclick="changeSettingsView('content')">
+          Content settings
+        </button>
+        <button onclick="changeSettingsView('size')">Size settings</button>
+      </div>
+      <div class="setting-container">
+        <div id="color-settings" class="color-settings">
+          <div class="main-page-settings">
+            <h2>Main settings</h2>
+            <label for="bg-color">Background Color</label>
+            <input
+              id="bg-color"
+              type="color"
+              onchange="updateRootValue(this, '--bgColor')"
+              value="#ffffff"
+            />
+          </div>
+          <div class="container-settings">
+            <h2>Container settings</h2>
+            <label for="container-color">Container Color</label>
+            <input
+              id="container-color"
+              type="color"
+              onchange="updateRootValue(this, '--containerColor')"
+              value="#ffffff"
+            />
+
+            <label for="container-shadow-color">Container Shadow Color</label>
+            <input
+              id="container-shadow-color"
+              type="color"
+              onchange="updateRootValue(this, '--containerShadowColor')"
+            />
+          </div>
+
+          <div class="input-color-settings">
+            <h2>Input settings</h2>
+            <label for="input-color">Input Color</label>
+            <input
+              id="input-color"
+              type="color"
+              onchange="updateRootValue(this, '--inputColor')"
+              value="#ffffff"
+            />
+
+            <label for="input-border-color">Input Border Color</label>
+            <input
+              id="input-border-color"
+              type="color"
+              onchange="updateRootValue(this, '--inputBorderColor')"
+            />
+          </div>
+        </div>
+
+        <div id="content-settings" class="content-settings">
+          <div id="input-settings" class="input-settings"></div>
+          <span class="new-input-text">
+            <input
+              id="new-placeholder"
+              class="new-input"
+              type="text"
+              placeholder="Placeholder"
+              size="25"
+            />
+            <span class="new-id-container">
+              <input
+                id="new-id"
+                class="new-input"
+                type="text"
+                placeholder="Id"
+                size="25"
+              />
+              <p id="error-msg"></p>
+            </span>
+            <button class="add-subtract-content" onclick="addContentInput()">
+              +
+            </button>
+          </span>
+        </div>
+
+        <div id="size-settings" class="size-settings">
+          <span>
+            <label for="container-shadow-size">Container Shadow Size</label>
+            <input
+              id="container-shadow-size"
+              type="number"
+              value="2"
+              min="0"
+              max="500"
+              onchange="updateRootValue(this, '--containerShadowSize')"
+            />
+          </span>
+          <span>
+            <label for="container-padding-size">Container Padding Size</label>
+            <input
+              id="container-padding-size"
+              type="number"
+              value="30"
+              min="0"
+              max="100"
+              onchange="updateRootValue(this, '--containerPadding')"
+            />
+          </span>
+
+          <span>
+            <label for="image-size">Image Size</label>
+            <input
+              id="image-size"
+              type="number"
+              value="100"
+              min="32"
+              max="350"
+              onchange="updateRootValue(this, '--imageSize')"
+            />
+          </span>
+          <span>
+            <label for="image-radius">Image Radius</label>
+            <input
+              id="image-radius"
+              type="number"
+              value="0"
+              min="0"
+              max="350"
+              onchange="updateRootValue(this, '--imageRadius')"
+            />
+          </span>
+
+          <span>
+            <label for="input-text-font-size">Text Input Font Size</label>
+            <input
+              id="input-text-font-size"
+              type="number"
+              value="20"
+              min="1"
+              max="100"
+              onchange="updateRootValue(this, '--textInputFontSize')"
+            />
+          </span>
+          <span>
+            <label for="input-text-padding-size">Text Input Padding Size</label>
+            <input
+              id="input-text-padding-size"
+              type="number"
+              value="10"
+              min="0"
+              max="100"
+              onchange="updateRootValue(this, '--textInputPaddingSize')"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+    <center>Created by John Llyod Apolo</center>
+    <script src="js/index.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
+</html>

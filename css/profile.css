@@ -1,0 +1,78 @@
+:root {
+  --bgColor: white;
+  --containerColor: white;
+  --containerShadowColor: black;
+  --inputColor: white;
+  --inputBorderColor: black;
+  --containerShadowSize: 2px;
+  --containerPadding: 30px;
+  --imageSize: 100px;
+  --imageRadius: 0px;
+  --textInputFontSize: 20px;
+  --textInputPaddingSize: 10px;
+}
+
+body {
+  margin: 0px;
+  background-color: var(--bgColor);
+}
+
+.form-container {
+  width: 400px;
+  height: auto;
+  margin: auto;
+  margin-top: 1%;
+  padding: var(--containerPadding);
+  text-align: center;
+  background-color: var(--containerColor);
+  border-radius: 10px;
+  box-shadow: 0px 0px var(--containerShadowSize) var(--containerShadowSize)
+    var(--containerShadowColor);
+}
+
+.form-container img {
+  margin: auto;
+  text-align: center;
+}
+
+.form-container input {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  padding: var(--textInputPaddingSize);
+  font-size: var(--textInputFontSize);
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: var(--inputColor);
+  border: 1px solid var(--inputBorderColor);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form-container input[id="edit-profile"] {
+  width: 50%;
+  cursor: pointer;
+}
+
+.form-container input[id="save-profile"] {
+  width: 50%;
+  display: none;
+  cursor: pointer;
+}
+
+.form-container input:focus {
+  border: 2px solid var(--inputBorderColor);
+}
+
+.profile-img {
+  width: var(--imageSize);
+  border-radius: var(--imageRadius);
+}
+
+@media only screen and (max-width: 430px) {
+  .form-container {
+    width: 300px;
+  }
+}

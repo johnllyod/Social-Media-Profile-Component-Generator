@@ -1,0 +1,467 @@
+:root {
+  --settingsBGColor: #f1f7fb;
+  --settingsBorderColor: #4798cc;
+  --btnColor: #de88a5;
+  --btnHoverColor: rgb(236, 148, 177);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.top-nav {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
+  background-color: var(--settingsBorderColor);
+}
+
+.top-nav button {
+  font-size: 1vw;
+  padding: 10px;
+  background-color: var(--btnColor);
+  border: 1px solid var(--bgColor);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+.top-nav button:hover {
+  background-color: var(--btnHoverColor);
+}
+
+.profile {
+  min-height: 500px;
+}
+
+.code-view {
+  width: 95%;
+  height: 485px;
+  margin: auto;
+  margin-top: 2%;
+  font-size: 1.5vw;
+  border: 2px solid var(--settingsBorderColor);
+  border-radius: 10px;
+  overflow-y: scroll;
+  display: none;
+}
+
+.settings {
+  width: 100%;
+  height: auto;
+  position: relative;
+  bottom: 0px;
+  left: 0px;
+}
+
+.setting-container {
+  min-height: 300px;
+  margin: auto;
+  padding: 0px;
+  background-color: var(--settingsBGColor);
+  border-left: 5px solid var(--settingsBorderColor);
+  border-right: 5px solid var(--settingsBorderColor);
+  border-bottom: 5px solid var(--settingsBorderColor);
+}
+
+.setting-container input {
+  margin: 10px;
+}
+
+.color-settings {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.content-settings {
+  margin: auto;
+  margin-bottom: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+  display: block;
+  text-align: center;
+  display: none;
+}
+
+.size-settings {
+  display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.size-settings span {
+  display: flex;
+  flex-flow: column;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+.size-settings span input {
+  width: 200px;
+  padding: 5px;
+  font-size: 1vw;
+}
+
+.input-settings {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.main-page-settings {
+  min-height: 230px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  align-items: center;
+  margin: 5px;
+  padding: 10px;
+  background-color: var(--settingsBorderColor);
+  border-radius: 7px;
+}
+
+.container-settings {
+  min-height: 230px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  align-items: center;
+  margin: 5px;
+  padding: 10px;
+  background-color: var(--settingsBorderColor);
+  border-radius: 7px;
+}
+
+.input-color-settings {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  align-items: center;
+  margin: 5px;
+  padding: 10px;
+  background-color: var(--settingsBorderColor);
+  border-radius: 7px;
+}
+
+.copy-btn {
+  width: auto;
+  text-align: center;
+  float: right;
+  border-radius: 5px;
+  margin: 1%;
+  padding: 0.5%;
+  font-size: 2.2vw;
+  border: 1px solid var(--settingsBorderColor);
+  cursor: pointer;
+  transition: 0.5s;
+  transform: translate(0%, 0);
+}
+
+.copy-btn:hover {
+  padding: 2px;
+  border-radius: 1px;
+}
+
+.settings-nav {
+  margin-top: 2%;
+  padding: 1%;
+  text-align: center;
+  background-color: var(--settingsBGColor);
+  border-radius: 10px 10px 0px 0px;
+  border-top: 5px solid var(--settingsBorderColor);
+  border-left: 5px solid var(--settingsBorderColor);
+  border-right: 5px solid var(--settingsBorderColor);
+}
+
+.settings-nav button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: var(--btnColor);
+  border: 1px solid var(--bgColor);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.settings-nav button:hover {
+  border-radius: 2px;
+  background-color: var(--btnHoverColor);
+}
+
+.sm-link-input {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
+  align-items: center;
+  border-radius: 7px;
+  border: 2px solid var(--settingsBorderColor);
+  margin: 1%;
+  padding: 1%;
+}
+
+.sm-link-input input {
+  padding: 10px;
+}
+
+.input-settings input {
+  font-size: 1vw;
+  border: 1px solid var(--settingsBorderColor);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-settings input:focus {
+  border: 2px solid var(--settingsBorderColor);
+}
+
+.add-subtract-content {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  padding: 0px;
+  line-height: 0px;
+  text-align: center;
+  background-color: var(--btnColor);
+  border: 1px solid var(--bgColor);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.add-subtract-content:hover {
+  background-color: var(--btnHoverColor);
+}
+
+.new-input-text {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-input {
+  font-size: 1.5vw;
+  padding: 10px;
+  border: 1px solid var(--settingsBorderColor);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.new-input:focus {
+  border: 2px solid var(--settingsBorderColor);
+}
+
+.new-id-container {
+  position: relative;
+}
+
+.new-id-container p {
+  margin: auto;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  display: none;
+  text-align: center;
+  font-size: 1vw;
+  transform: translate(0%, 100%);
+}
+
+@media only screen and (min-width: 2000px) {
+  .headerTitle {
+    font-size: 3vw;
+  }
+
+  .top-nav button {
+    margin: 5px;
+    font-size: 1.5vw;
+  }
+
+  .main-page-settings {
+    min-height: 470px;
+    font-size: 1.5vw;
+  }
+
+  .main-page-settings input {
+    min-width: 130px;
+    min-height: 70px;
+  }
+
+  .container-settings {
+    min-height: 470px;
+    font-size: 1.5vw;
+  }
+
+  .container-settings input {
+    min-width: 130px;
+    min-height: 70px;
+    font-size: 2vw;
+  }
+
+  .input-color-settings {
+    min-height: 470px;
+    font-size: 1.5vw;
+  }
+
+  .input-color-settings input {
+    min-width: 130px;
+    min-height: 70px;
+    font-size: 2vw;
+  }
+
+  .input-settings {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .add-subtract-content {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+  }
+
+  .settings-nav button {
+    font-size: 1.5vw;
+    padding: 10px;
+  }
+
+  .size-settings span {
+    margin-right: 1%;
+  }
+
+  .size-settings span input {
+    width: 600px;
+    font-size: 1vw;
+  }
+
+  .size-settings span label {
+    font-size: 1vw;
+  }
+  .code-view {
+    height: 50vh;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1500px) {
+  .input-settings {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .add-subtract-content {
+    width: 30px;
+    height: 30px;
+    font-size: 50px;
+  }
+
+  .main-page-settings {
+    min-height: 400px;
+    font-size: 2vw;
+  }
+
+  .main-page-settings input {
+    min-width: 100px;
+    min-height: 50px;
+    font-size: 2vw;
+  }
+
+  .container-settings {
+    min-height: 400px;
+    font-size: 2vw;
+  }
+
+  .container-settings input {
+    min-width: 100px;
+    min-height: 50px;
+    font-size: 2vw;
+  }
+
+  .input-color-settings {
+    min-height: 400px;
+    font-size: 2vw;
+  }
+
+  .input-color-settings input {
+    min-width: 100px;
+    min-height: 50px;
+    font-size: 2vw;
+  }
+
+  .size-settings span input {
+    width: 300px;
+    font-size: 2vw;
+  }
+
+  .size-settings span label {
+    font-size: 2vw;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .input-settings {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sm-link-input input {
+    font-size: 2vw;
+  }
+
+  .top-nav button {
+    font-size: 2vw;
+  }
+
+  .code-view {
+    font-size: 2vw;
+    min-height: 133px;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  .top-nav button {
+    font-size: 4.5vw;
+  }
+
+  .main-page-settings {
+    width: 100%;
+  }
+
+  .container-settings {
+    width: 100%;
+  }
+
+  .input-color-settings {
+    width: 100%;
+  }
+
+  .code-view {
+    font-size: 5vw;
+    min-height: 133px;
+  }
+
+  .copy-btn {
+    font-size: 5vw;
+  }
+
+  .input-settings input {
+    font-size: 4vw;
+  }
+
+  .size-settings span input {
+    font-size: 4vw;
+  }
+}
