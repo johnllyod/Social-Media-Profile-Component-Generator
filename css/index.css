@@ -292,7 +292,7 @@ html {
   }
 
   .main-page-settings {
-    min-height: 470px;
+    min-height: 850px;
     font-size: 1.5vw;
   }
 
@@ -302,7 +302,7 @@ html {
   }
 
   .container-settings {
-    min-height: 470px;
+    min-height: 850px;
     font-size: 1.5vw;
   }
 
@@ -313,7 +313,7 @@ html {
   }
 
   .input-color-settings {
-    min-height: 470px;
+    min-height: 850px;
     font-size: 1.5vw;
   }
 
@@ -351,8 +351,22 @@ html {
   .size-settings span label {
     font-size: 1vw;
   }
+
   .code-view {
     height: 50vh;
+  }
+
+  .new-id-container p {
+    font-size: 1.7vw;
+  }
+
+  .credit {
+    font-size: 1.2vw;
+    padding: 50px;
+  }
+
+  .setting-container {
+    min-height: 1100px;
   }
 }
 
@@ -429,6 +443,14 @@ html {
     font-size: 2vw;
     min-height: 133px;
   }
+
+  .size-settings span input {
+    width: 300px;
+    font-size: 1.5vw;
+  }
+  .new-id-container p {
+    font-size: 2vw;
+  }
 }
 
 @media only screen and (max-width: 639px) {
@@ -463,5 +485,9 @@ html {
 
   .size-settings span input {
     font-size: 4vw;
+  }
+
+  .new-id-container p {
+    font-size: 3.5vw;
   }
 }

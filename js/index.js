@@ -1,12 +1,19 @@
 const pageRoot = document.querySelector(":root");
 var inputIds = ["name", "facebook", "twitter", "instagram", "youtube"];
+var currentView = "preview";
 
 // Change the color of the form
 function updateRootValue(elementVal, cssVar) {
   if (elementVal.type == "number") {
     pageRoot.style.setProperty(cssVar, elementVal.value + "px");
+    if (currentView == "css") {
+      encodeScript("css");
+    }
   } else {
     pageRoot.style.setProperty(cssVar, elementVal.value);
+    if (currentView == "css") {
+      encodeScript("css");
+    }
   }
 }
 
@@ -82,17 +89,21 @@ function changeView(viewName) {
   if (viewName == "preview") {
     preview.style.display = "block";
     codeView.style.display = "none";
+    currentView = "preview";
   } else if (viewName == "html") {
-    encodeScript("html");
     preview.style.display = "none";
     codeView.style.display = "block";
+    currentView = "html";
+    encodeScript("html");
   } else if (viewName == "css") {
     preview.style.display = "none";
     codeView.style.display = "block";
+    currentView = "css";
     encodeScript("css");
   } else if (viewName == "javascript") {
     preview.style.display = "none";
     codeView.style.display = "block";
+    currentView = "javascript";
     encodeScript("javascript");
   }
 }
@@ -131,16 +142,20 @@ function encodeScript(viewType) {
     encodedStr = encodedStr.replace(/(\r\n|\n|\r)/gm, "");
     encodedStr = encodedStr.replace(/\s\s/g, "");
     encodedStr = encodedStr.replaceAll("&#62;&#60;", "&#62;\n&#60;");
-    console.log(encodedStr);
+
     codeContainer.innerHTML = encodedStr;
   } else if (viewType == "css") {
-    fetch("../css/profile.css")
+    fetch(
+      "https://raw.githubusercontent.com/johnllyod/Social-Media-Profile-Component-Generator/main/css/profile.css"
+    )
       .then((response) => response.text())
       .then((data) => {
         codeContainer.innerHTML = replaceRootVarValue(data);
       });
   } else if (viewType == "javascript") {
-    fetch("/js/profile.js")
+    fetch(
+      "https://raw.githubusercontent.com/johnllyod/Social-Media-Profile-Component-Generator/main/js/profile.js"
+    )
       .then((response) => response.text())
       .then((data) => {
         codeContainer.innerHTML = data;
@@ -246,6 +261,9 @@ function addContentInput() {
       inputIds.push(newId);
       inputIds[inputIds.length] = errorMsg.innerHTML = "";
       populateContent();
+      if (currentView == "html") {
+        encodeScript("html");
+      }
     }
   }
 }
@@ -256,6 +274,9 @@ function removeContentInput(thisBtn, idVal) {
   formInput.remove();
   formInputEditor.remove();
   thisBtn.remove();
+  if (currentView == "html") {
+    encodeScript("html");
+  }
 }
 
 function updatePlaceholder(inputText) {
