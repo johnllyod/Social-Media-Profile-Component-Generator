@@ -203,9 +203,9 @@ function populateContent() {
   Array.from(formInputs.elements).forEach((input) => {
     if (input.type == "text") {
       inputSettings.innerHTML +=
-        `<span id="` +
+        `<span class='sm-link-input'><input id="` +
         input.id +
-        `Editor" class='sm-link-input'><input type="text" value="` +
+        `Editor" type="text" value="` +
         input.placeholder +
         `" onchange="updatePlaceholder(this)">
       <button class="add-subtract-content" onclick="removeContentInput(this, '` +
@@ -272,7 +272,7 @@ function removeContentInput(thisBtn, idVal) {
   const formInput = document.getElementById(idVal);
   const formInputEditor = document.getElementById(idVal + "Editor");
   formInput.remove();
-  formInputEditor.remove();
+  formInputEditor.parentElement.remove();
   thisBtn.remove();
   if (currentView == "html") {
     encodeScript("html");
@@ -282,7 +282,6 @@ function removeContentInput(thisBtn, idVal) {
 function updatePlaceholder(inputText) {
   let profileInputId = inputText.id.replace("Editor", "");
   const profileInput = document.getElementById(profileInputId);
-
   if (profileInput.type == "text") {
     profileInput.placeholder = inputText.value;
   } else if (profileInput.type == "button") {
